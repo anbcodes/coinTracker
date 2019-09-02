@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div id="page">
+      <div v-for="year in years">
+        <div v-for="i in 10" id="yearNum">
+          {{year.year+(i-1)}}
+        </div>    
+        <div v-for="mark in marks" v-if="mark in year.marks">
+          <div id="mark">
+            {{mark}}
+          </div>
+          <div id="coin" v-for="i in 10"></div>
+        </div>
+      </div>
+    </div>
+    <script>
+    var app = new Vue({
+      el: '#page',
+      data: {
+        marks: ['P', 'D', 'S'],
+        years: [
+          {
+            marks: ['P', 'D', 'S'],
+            year: "196",
+          }
+        ]
+      }
+    })
+    </script>
+  </body>
+</html>
